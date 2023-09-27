@@ -38,6 +38,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 #fixed-bottom img {
+    background-color: dodgerblue;
     width: 40px;
     height: 40px;
     pointer-events: none;
