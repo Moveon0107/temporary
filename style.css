@@ -28,6 +28,7 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 #fixed-bottom p {
     width: 80px;
@@ -38,7 +39,6 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 #fixed-bottom img {
-    background-color: dodgerblue;
     width: 40px;
     height: 40px;
     pointer-events: none;
