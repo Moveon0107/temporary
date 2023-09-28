@@ -63,6 +63,12 @@ body::-webkit-scrollbar {
 #menu p:hover {
     background-color: lightgrey;
 }
+#menu img {
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+}
+    
 #fixed-bottom {
     position: fixed;
     bottom: 0;
