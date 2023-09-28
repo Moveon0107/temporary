@@ -13,17 +13,16 @@
         <p style="position: absolute; right: 0; font-size: 50px; overflow: hidden;"><span style="transform: translateY(-4px);">≡</span></p>
     </div>
     <div id='wrapper'>
-        <div>
-            content
-        </div>
-      </div>
+        content
+    </div>
 
     <div id="fixed-bottom">
-        <p><img src="./icon/home.png"></p>
-        <p><img src="./icon/search.png"></p>
-        <p><img src="./icon/event.png"></p>
-        <p><img src="./icon/profile.png"></p>
+        <p id="home" onclick="pageLoad('home');"><img src="./icon/home.png"></p>
+        <p id="search" onclick="pageLoad('search');"><img src="./icon/search.png"></p>
+        <p id="event" onclick="pageLoad('event');"><img src="./icon/event.png"></p>
+        <p id="profile" onclick="pageLoad('profile');"><img src="./icon/profile.png"></p>
     </div>
+    <script src="./index.js"></script>
 </body>
 
 </html>
