@@ -1,5 +1,18 @@
 window.onload = function () {
     pageLoad('home');
+    menuStatus = "close";
+}
+function menu() {
+    if(menuStatus=="open"){
+        document.getElementById("menu").classList.remove("menu-open");
+        document.getElementById("menu-background").classList.remove("menu-open");
+        menuStatus = "close";
+    } else {
+        document.getElementById("menu").classList.add("menu-open");
+        document.getElementById("menu-background").classList.add("menu-open");
+        menuStatus = "open";
+    }
+
 }
 function pageLoad(page) {
     document.getElementById("home").classList.remove("active");

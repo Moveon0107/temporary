@@ -1,7 +1,7 @@
 body::-webkit-scrollbar {
     display: none;
 }
-#sticky-top {
+#fixed-top {
     position: fixed;
     top: 0;
     background-color: #ffffff;
@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
 }
-#sticky-top p {
+#fixed-top p {
     width: 60px;
     height: 60px;
     display: flex;
@@ -18,6 +18,33 @@ body::-webkit-scrollbar {
     justify-content: center;
     margin-right: 5px;
     cursor: pointer;
+}
+#menu-background {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#menu-background.menu-open {
+    display: block;
+}
+#menu {
+    position: fixed;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 400px;
+    bottom: 0;
+    z-index: 2;
+    background-color: aqua;
+    transform: translateY(400px);
+    transition: transform 0.3s ease-in;
+}
+#menu.menu-open {
+    display: flex;
+    transform: translateY(0px);
 }
 #fixed-bottom {
     position: fixed;

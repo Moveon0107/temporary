@@ -9,8 +9,13 @@
 </head>
 
 <body style="margin: 0; user-select: none; font-family: Arial, sans-serif;">
-    <div id="sticky-top">
-        <p style="position: absolute; right: 0; font-size: 50px; overflow: hidden;"><span style="transform: translateY(-4px);">≡</span></p>
+
+    <div id="menu-background" onclick="menu();"></div>
+        <div id="menu"></div>
+    
+    <div id="fixed-top">
+        <p onclick="menu();" style="position: absolute; right: 0; font-size: 50px; overflow: hidden;"><span
+                style="transform: translateY(-4px);">≡</span></p>
     </div>
     <div id='wrapper'>
         content
