@@ -38,6 +38,8 @@ body::-webkit-scrollbar {
     height: 400px;
     bottom: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
     background-color: #ffffff;
     border-top: solid black 2px;
     transform: translateY(402px);
@@ -47,6 +49,16 @@ body::-webkit-scrollbar {
     display: flex;
     transform: translateY(0px);
     transition: transform 0.3s;
+}
+#menu p:first-child {
+    margin-top: 20px;
+}
+#menu p {
+    margin: 0;
+    padding: 15px;
+}
+#menu p:hover {
+    background-color: lightgrey;
 }
 #fixed-bottom {
     position: fixed;
