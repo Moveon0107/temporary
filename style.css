@@ -61,7 +61,7 @@ body::-webkit-scrollbar {
     padding-left: 15px;
 }
 #menu p:hover {
-    background-color: lightgrey;
+    background-color: Gainsboro;
 }
 #menu img {
     width: 30px;
@@ -94,7 +94,7 @@ body::-webkit-scrollbar {
 
 }
 .active {
-    background-color: lightgrey;
+    background-color: Gainsboro;
 }
 #wrapper {
     background-color: #eeeeee;
