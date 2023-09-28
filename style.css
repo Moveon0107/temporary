@@ -51,11 +51,11 @@ body::-webkit-scrollbar {
     transition: transform 0.3s;
 }
 #menu p:first-child {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 #menu p {
     margin: 0;
-    padding: 15px;
+    height: 30px;
 }
 #menu p:hover {
     background-color: lightgrey;
