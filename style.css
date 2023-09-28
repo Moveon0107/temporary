@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
     background-color: #ffffff;
     border-top: solid black 2px;
     transform: translateY(402px);
-    transition: transform 0.1s;
+    transition: transform 0.2s;
 }
 #menu.menu-open {
     display: flex;
