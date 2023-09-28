@@ -94,7 +94,7 @@ body::-webkit-scrollbar {
 
 }
 .active {
-    background-color: lightskyblue;
+    background-color: lightgrey;
 }
 #wrapper {
     background-color: #eeeeee;
