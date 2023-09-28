@@ -58,6 +58,7 @@ body::-webkit-scrollbar {
     margin: 0;
     height: 40px;
     line-height: 40px;
+    margin-left: 15px;
 }
 #menu p:hover {
     background-color: lightgrey;
