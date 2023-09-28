@@ -46,7 +46,7 @@ body::-webkit-scrollbar {
 #menu.menu-open {
     display: flex;
     transform: translateY(0px);
-    transition: transform 0.4s;
+    transition: transform 0.3s;
 }
 #fixed-bottom {
     position: fixed;
