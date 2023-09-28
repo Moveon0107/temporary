@@ -51,7 +51,7 @@ body::-webkit-scrollbar {
     transition: transform 0.3s;
 }
 #menu p:first-child {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 #menu p {
     margin: 0;
