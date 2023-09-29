@@ -4,12 +4,13 @@ window.onload = function () {
 }
 function menu() {
     if(menuStatus=="open"){
+alert("닫힘");
     if(click != 1){
        click = 1;
+alert("닫힘");
     document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
-alert("닫힘");
 setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
 }, 200);
