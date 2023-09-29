@@ -12,8 +12,8 @@ function menu() {
 alert("닫힘");
 setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
-click = 0;
 }, 200);
+        click = 0;
         menuStatus = "close";
     }
     } else {
