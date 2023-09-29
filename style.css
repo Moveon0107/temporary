@@ -69,7 +69,15 @@ body::-webkit-scrollbar {
     pointer-events: none;
     margin-right: 10px;
 }
-    
+#wrapper {
+    background-color: #eeeeee;
+    padding-top: 60px;
+    padding-bottom: 55px;
+    width: 100%;
+    height: 100vh;
+    font-size: 30px;
+    word-wrap: break-word;
+}
 #fixed-bottom {
     position: fixed;
     bottom: 0;
@@ -96,12 +104,4 @@ body::-webkit-scrollbar {
 }
 .active {
     background-color: Gainsboro;
-}
-#wrapper {
-    background-color: #eeeeee;
-    padding-top: 60px;
-    width: 100%;
-    height: 100vh;
-    font-size: 30px;
-    word-wrap: break-word;
 }
