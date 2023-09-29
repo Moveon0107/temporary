@@ -1,24 +1,26 @@
 window.onload = function () {
     pageLoad('home');
     menuStatus = "close";
+    click = 0;
 }
 function menu() {
+    if(click == 0){
     if(menuStatus=="open"){
         document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
-setTimeout(() => {
+menuTransform = setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
 }, 200);
         menuStatus = "close";
     } else {
-        document.getElementById("menu").classList.add("menu-open");
+       clearTimeout(menuTransform); document.getElementById("menu").classList.add("menu-open");
         document.getElementById("menu-background").classList.add("menu-open");
 
 document.getElementById("menu-background").style = 'transform: translateY(0px);';
         menuStatus = "open";
     }
-
+    }
 }
 function pageLoad(page) {
     document.getElementById("home").classList.remove("active");
