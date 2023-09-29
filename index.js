@@ -8,7 +8,7 @@ function menu() {
         document.getElementById("menu-background").classList.remove("menu-open");
 
 setTimeout(() => {
-document.getElementById("menu-background").style = 'transform: translateY(0px)';
+document.getElementById("menu-background").style = 'transform: translateY(100%)';
 }, 1000);
         menuStatus = "close";
     } else {
