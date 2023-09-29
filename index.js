@@ -14,7 +14,7 @@ document.getElementById("menu-background").style = 'transform: translateY(100%);
 }, 200);
         menuStatus = "close";
     } else {
-       clearTimeout(menuTransform);
+       //clearTimeout(menuTransform);
 document.getElementById("menu").classList.add("menu-open");
         document.getElementById("menu-background").classList.add("menu-open");
 
