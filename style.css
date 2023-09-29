@@ -67,7 +67,7 @@ body::-webkit-scrollbar {
     width: 30px;
     height: 30px;
     pointer-events: none;
-    margin-right: 15px;
+    margin-right: 10px;
 }
     
 #fixed-bottom {
