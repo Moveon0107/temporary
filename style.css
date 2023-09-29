@@ -102,6 +102,7 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     border-top: solid #eeeeee 1px;
+    box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.3);
 }
 #fixed-bottom p {
     width: 80px;
