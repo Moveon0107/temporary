@@ -30,6 +30,7 @@ body::-webkit-scrollbar {
 }
 #menu-background.menu-open {
     display: block;
+    transition: transform 0.5s;
 }
 #menu {
     position: fixed;
