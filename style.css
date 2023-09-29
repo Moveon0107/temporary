@@ -32,7 +32,7 @@ body::-webkit-scrollbar {
 #menu-background.menu-open {
     display: block;
     opacity: 1;
-    transition: transform 0.5s;
+    transition: opacity 1s;
 }
 #menu {
     position: fixed;
