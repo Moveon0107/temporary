@@ -9,12 +9,12 @@ function menu() {
     document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
+alert("닫힘");
 setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
 click = 0;
 }, 200);
         menuStatus = "close";
-alert("닫힘");
     }
     } else {
 document.getElementById("menu").classList.add("menu-open");
