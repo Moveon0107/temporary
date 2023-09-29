@@ -78,6 +78,7 @@ body::-webkit-scrollbar {
     font-size: 30px;
     word-wrap: break-word;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 .container {
