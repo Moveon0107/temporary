@@ -80,6 +80,14 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
 }
+.container {
+    max-width: 500px;
+    width: 85vw;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
 #fixed-bottom {
     position: fixed;
     bottom: 0;
