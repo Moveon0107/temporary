@@ -83,7 +83,7 @@ body::-webkit-scrollbar {
     word-wrap: break-word;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
 }
 .container {
