@@ -9,7 +9,7 @@ function menu() {
 
 setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
-}, 1000);
+}, 200);
         menuStatus = "close";
     } else {
         document.getElementById("menu").classList.add("menu-open");
