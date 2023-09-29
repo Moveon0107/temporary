@@ -1,13 +1,12 @@
 window.onload = function () {
     pageLoad('home');
     menuStatus = "close";
+    click = 0;
 }
 function menu() {
     if(menuStatus=="open"){
-alert("닫힘");
     if(click != 1){
        click = 1;
-alert("닫힘");
     document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
@@ -23,7 +22,6 @@ document.getElementById("menu").classList.add("menu-open");
 
 document.getElementById("menu-background").style = 'transform: translateY(0px);';
         menuStatus = "open";
-alert("열림");
     }
 }
 function pageLoad(page) {
