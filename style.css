@@ -9,7 +9,7 @@ body::-webkit-scrollbar {
     height: 60px;
     display: flex;
     align-items: center;
-    border-bottom: solid Gainsboro 1px;
+    border-bottom: solid #eeeeee 1px;
 }
 #fixed-top p {
     width: 60px;
@@ -101,7 +101,7 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: solid Gainsboro 1px;
+    border-top: solid #eeeeee 1px;
 }
 #fixed-bottom p {
     width: 80px;
