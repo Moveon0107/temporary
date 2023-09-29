@@ -77,6 +77,8 @@ body::-webkit-scrollbar {
     height: 100vh;
     font-size: 30px;
     word-wrap: break-word;
+    display: flex;
+    justify-content: center;
 }
 #fixed-bottom {
     position: fixed;
