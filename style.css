@@ -89,6 +89,7 @@ body::-webkit-scrollbar {
     border-radius: 30px;
     background-color: #ffffff;
     margin-bottom: 30px;
+    padding: 30px;
 }
 #fixed-bottom {
     position: fixed;
