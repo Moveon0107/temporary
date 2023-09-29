@@ -5,7 +5,8 @@ window.onload = function () {
 function menu() {
     if(menuStatus=="open"){
     if(click != 1){
-       click = 1; document.getElementById("menu").classList.remove("menu-open");
+       click = 1;
+    document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
 setTimeout(() => {
