@@ -31,7 +31,6 @@ body::-webkit-scrollbar {
     transition: opacity 0.9s;
 }
 #menu-background.menu-open {
-    transform: translateY(0px);
     opacity: 1;
     transition: opacity 0.3s;
 }
