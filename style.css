@@ -27,9 +27,11 @@ body::-webkit-scrollbar {
     height: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
 }
 #menu-background.menu-open {
     display: block;
+    opacity: 1;
     transition: transform 0.5s;
 }
 #menu {
