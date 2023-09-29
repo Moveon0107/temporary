@@ -13,8 +13,8 @@ function menu() {
 
 setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
+click = 0;
 }, 200);
-        click = 0;
         menuStatus = "close";
     } else {
 document.getElementById("menu").classList.add("menu-open");
