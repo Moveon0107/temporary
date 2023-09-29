@@ -8,12 +8,14 @@ function menu() {
         document.getElementById("menu-background").classList.remove("menu-open");
 
 setTimeout(() => {
-document.getElementById("menu-background").style = 'transform: translateY(100%)';
+document.getElementById("menu-background").style = 'transform: translateY(100%);';
 }, 1000);
         menuStatus = "close";
     } else {
         document.getElementById("menu").classList.add("menu-open");
         document.getElementById("menu-background").classList.add("menu-open");
+
+document.getElementById("menu-background").style = 'transform: translateY(0px);';
         menuStatus = "open";
     }
 
