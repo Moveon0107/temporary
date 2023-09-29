@@ -28,6 +28,7 @@ body::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.9s;
+    transform: translateY(100%);
 }
 #menu-background.menu-open {
     opacity: 1;
