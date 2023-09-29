@@ -71,8 +71,8 @@ body::-webkit-scrollbar {
 }
 #wrapper {
     background-color: #eeeeee;
-    padding-top: 60px;
-    padding-bottom: 55px;
+    padding-top: 90px;
+    padding-bottom: 85px;
     width: 100%;
     height: 100vh;
     font-size: 30px;
