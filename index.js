@@ -6,6 +6,10 @@ function menu() {
     if(menuStatus=="open"){
         document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
+
+setTimeout(() => {
+document.getElementById("menu-background").style.transform = 'translateY(0px)';
+}, 1000);
         menuStatus = "close";
     } else {
         document.getElementById("menu").classList.add("menu-open");
