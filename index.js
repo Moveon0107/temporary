@@ -1,26 +1,25 @@
 window.onload = function () {
     pageLoad('home');
     menuStatus = "close";
-    click = 0;
 }
 function menu() {
-    if(click == 0){
     if(menuStatus=="open"){
-        document.getElementById("menu").classList.remove("menu-open");
+    if(click != 1){
+       click = 1; document.getElementById("menu").classList.remove("menu-open");
         document.getElementById("menu-background").classList.remove("menu-open");
 
-menuTransform = setTimeout(() => {
+setTimeout(() => {
 document.getElementById("menu-background").style = 'transform: translateY(100%);';
+click = 0;
 }, 200);
         menuStatus = "close";
+    }
     } else {
-       //clearTimeout(menuTransform);
 document.getElementById("menu").classList.add("menu-open");
         document.getElementById("menu-background").classList.add("menu-open");
 
 document.getElementById("menu-background").style = 'transform: translateY(0px);';
         menuStatus = "open";
-    }
     }
 }
 function pageLoad(page) {
