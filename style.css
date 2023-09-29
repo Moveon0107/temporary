@@ -79,7 +79,7 @@ body::-webkit-scrollbar {
     word-wrap: break-word;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    margin: 0 auto;
 }
 .container {
     max-width: 500px;
