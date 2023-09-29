@@ -14,6 +14,7 @@ document.getElementById("menu-background").style = 'transform: translateY(100%);
 click = 0;
 }, 200);
         menuStatus = "close";
+alert("닫힘");
     }
     } else {
 document.getElementById("menu").classList.add("menu-open");
@@ -21,6 +22,7 @@ document.getElementById("menu").classList.add("menu-open");
 
 document.getElementById("menu-background").style = 'transform: translateY(0px);';
         menuStatus = "open";
+alert("열림");
     }
 }
 function pageLoad(page) {
