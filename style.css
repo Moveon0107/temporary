@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
 }
 .container {
     max-width: 500px;
-    width: 85vw;
+    width: 70vw;
     height: 100%;
     border-radius: 30px;
     background-color: #ffffff;
