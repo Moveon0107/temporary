@@ -4,25 +4,25 @@ window.onload = function () {
     click = 0;
 }
 function menu() {
-    if(click != 1){
-    if(menuStatus=="open"){
-    
-       click = 1;
-    document.getElementById("menu").classList.remove("menu-open");
-        document.getElementById("menu-background").classList.remove("menu-open");
+    if (click != 1) {
+        if (menuStatus == "open") {
 
-setTimeout(() => {
-document.getElementById("menu-background").style = 'transform: translateY(100%);';
-click = 0;
-}, 200);
-        menuStatus = "close";
-    } else {
-document.getElementById("menu").classList.add("menu-open");
-        document.getElementById("menu-background").classList.add("menu-open");
+            click = 1;
+            document.getElementById("menu").classList.remove("menu-open");
+            document.getElementById("menu-background").classList.remove("menu-open");
 
-document.getElementById("menu-background").style = 'transform: translateY(0px);';
-        menuStatus = "open";
-    }
+            setTimeout(() => {
+                document.getElementById("menu-background").style = 'transform: translateY(100%);';
+                click = 0;
+            }, 200);
+            menuStatus = "close";
+        } else {
+            document.getElementById("menu").classList.add("menu-open");
+            document.getElementById("menu-background").classList.add("menu-open");
+
+            document.getElementById("menu-background").style = 'transform: translateY(0px);';
+            menuStatus = "open";
+        }
     }
 }
 function pageLoad(page) {
