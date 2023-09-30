@@ -127,10 +127,6 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-#fixed-bottom p:hover {
-    background-color: #eeeeee;
-}
-
 #fixed-bottom img {
     width: 40px;
     height: 40px;
