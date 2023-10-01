@@ -89,6 +89,7 @@ body::-webkit-scrollbar {
     padding-bottom: 55px;
     width: 100%;
     min-height: clac(100vh-115px);
+    background-color: #eeeeee;
     font-size: 18px;
     word-wrap: break-word;
     display: flex;
