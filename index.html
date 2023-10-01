@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Test 페이지</title>
+    <title>ClanTalk</title>
 </head>
 
 <body style="margin: 0; user-select: none; font-family: Arial, sans-serif;">
@@ -21,7 +21,7 @@
                 style="transform: translateY(-4px);">≡</span></p>
     </div>
     <div id='wrapper'>
-        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; height: calc(100vh - 175px); display: flex; align-items: center; justify-content: center;">
         <style>
             #non-member p {
                 border: solid black 2px;
@@ -43,10 +43,10 @@
     </div>
 
     <div id="fixed-bottom">
-        <p id="home" onclick="pageLoad('home');"><img src="./icon/home.png"></p>
-        <p id="search" onclick="pageLoad('search');"><img src="./icon/search.png"></p>
-        <p id="event" onclick="pageLoad('event');"><img src="./icon/event.png"></p>
-        <p id="profile" onclick="pageLoad('profile');"><img src="./icon/profile.png"></p>
+        <p id="home" onclick="pageLoad('home');"><img src="./icon/home.png" alt="home"></p>
+        <p id="search" onclick="pageLoad('search');"><img src="./icon/search.png" alt="search"></p>
+        <p id="event" onclick="pageLoad('event');"><img src="./icon/event.png" alt="event"></p>
+        <p id="profile" onclick="pageLoad('profile');"><img src="./icon/profile.png" alt="profile"></p>
     </div>
     <script src="./index.js"></script>
 </body>
