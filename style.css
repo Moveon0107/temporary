@@ -85,11 +85,10 @@ body::-webkit-scrollbar {
 }
 
 #wrapper {
-    box-sizing: border-box;
-    min-height: 100%
     padding-top: 90px;
     padding-bottom: 55px;
     width: 100%;
+    min-height: clac(100vh-115px);
     font-size: 18px;
     word-wrap: break-word;
     display: flex;
