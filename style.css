@@ -88,7 +88,7 @@ body::-webkit-scrollbar {
     padding-top: 90px;
     padding-bottom: 55px;
     width: 100%;
-    height: calc(100vh-115px);
+    height: calc(100vh);
     background-color: #eeeeee;
     font-size: 18px;
     word-wrap: break-word;
