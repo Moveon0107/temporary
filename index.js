@@ -31,6 +31,7 @@ function pageLoad(page) {
     document.getElementById("event").classList.remove("active");
     document.getElementById("profile").classList.remove("active");
     document.getElementById(page).classList.add("active");
+    /*
     if (page == "profile") {
         xhr = new XMLHttpRequest();
         xhr.open('GET', './page/profile/profile.html', true);
@@ -42,6 +43,6 @@ function pageLoad(page) {
         };
 
         xhr.send();
-    }
+    }*/
 
 }
