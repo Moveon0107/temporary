@@ -47,19 +47,8 @@ function menu() {
     }
 }
 function Login(){
-    //location.href = "./account/Login.html";
-        xhr = new XMLHttpRequest();
-        xhr.open('GET', './account/Login.html', true);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.querySelector("#wrapper").innerHTML = xhr.responseText;
-            }
-        };
-
-        xhr.send();
-
+    location.href = "./account/Login.html";
 }
 function Signup(){
-
+    location.href = "./account/Signup.html";
 }
