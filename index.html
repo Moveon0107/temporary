@@ -11,8 +11,8 @@
 <body style="margin: 0; user-select: none; font-family: Arial, sans-serif;">
     <div id="menu-background" onclick="menu();"></div>
     <div id="menu">
-        <p><img src="./icon/profile.png">로그인</p>
-        <p><img src="./icon/profile.png">회원가입</p>
+        <p onclick="Login();"><img src="./icon/profile.png">로그인</p>
+        <p onclick="Signup();"><img src="./icon/profile.png">회원가입</p>
     </div>
 
     <div id="fixed-top">
@@ -37,8 +37,8 @@
             }
         </style>
         <div style="display: flex;" id="non-member">
-            <p>로그인</p>
-            <p>회원가입</p>
+            <p onclick="Login();">로그인</p>
+            <p onclick="Signup();">회원가입</p>
         </div>
         </div>
     </div>
