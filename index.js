@@ -3,9 +3,6 @@ window.onload = function () {
     menuStatus = "close";
     click = 0;
 }
-function UI(title, content){
-    document.querySelector("body").innerHTML += "ㅎㅇ";
-}
 
 function pageLoad(page) {
     document.getElementById("home").classList.remove("active");
@@ -55,10 +52,4 @@ function Login(){
 }
 function Signup(){
     location.href = "./account/Signup.html";
-}
-function Signup_Email(input){
-    input = input || "None";
-    if(input=="None"){
-        UI("제목", "입력하셈");
-    }
 }
