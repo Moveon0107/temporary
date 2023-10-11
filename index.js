@@ -3,6 +3,10 @@ window.onload = function () {
     menuStatus = "close";
     click = 0;
 }
+function UI(title, content){
+    document.querySelector("body").innerHTML += "ㅎㅇ";
+}
+
 function pageLoad(page) {
     document.getElementById("home").classList.remove("active");
     document.getElementById("search").classList.remove("active");

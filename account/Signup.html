@@ -36,10 +36,18 @@
         <div class="container">
             <h2>회원가입</h2>
             <input style="width: 80%; height: 30px; padding: 10px;" placeholder="이메일을 입력하세요.">
-            <p onclick="Signup_EMAIL" style="width: 80%; height: 30px; padding: 10px; text-align: center; background-color: dodgerblue; color: #ffffff; cursor: pointer; border-radius: 5px;">다음</p>
+            <p onclick="Signup_Email(document.querySelector('.container input').value);" style="width: 80%; height: 30px; padding: 10px; text-align: center; background-color: dodgerblue; color: #ffffff; cursor: pointer; border-radius: 5px;">다음</p>
         
         </div>
     </div>
+    <script src="../index.js">
+        function Signup_Email(input){
+            input = input || "None";
+            if(input=="None"){
+                UI("제목", "입력하셈");
+            }
+        }
+    </script>
 </body>
 
 </html>
