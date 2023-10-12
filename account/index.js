@@ -11,7 +11,7 @@ function Email_request(email) {
     event.preventDefault();
 
     // 서버로 POST 요청 보내기
-    fetch('http://clantalk-server.moveon.kro.kr/signup', {
+    fetch('https://clantalk-server.moveon.kro.kr/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
