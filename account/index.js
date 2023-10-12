@@ -16,7 +16,12 @@ function Email_request(email) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ to_email: email })
+        body: JSON.stringify({
+            "myuser":{"name": "철수",
+             "age": 8,
+             "school": "다람쥐 초등학교",
+             "email": "ghwnsgkgk@kakao.com"} 
+         })
     })
         .then(response => response.json())
         .then(data => {
