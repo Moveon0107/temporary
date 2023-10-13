@@ -17,19 +17,18 @@ function Email_request(email) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "myuser":{"name": "철수",
-             "age": 8,
-             "school": "다람쥐 초등학교",
-             "email": "ghwnsgkgk@kakao.com"} 
+            "name": "철수",
+            "email": "moveon0107@gmail.com" 
          })
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            alert('이메일 인증 코드가 전송되었습니다.');
+            console.log('이메일 발송 성공:', data.message);
         })
         .catch(error => {
-            console.error('오류:', error);
-            alert('이메일 인증 코드 요청 중 오류가 발생했습니다.');
+            console.error('이메일 발송 실패:', error);
         });
+        
+
+
 }
