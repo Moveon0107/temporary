@@ -24,7 +24,7 @@ function Signup_Email(input, seq) {
                 UI("ClanTalk - 회원가입", "비밀번호를 입력하세요.");
                 document.querySelector('.container input').value = "";
             } else if (input.length >= 8) {
-                document.querySelector('.container h2').textContent = "ClanTalk - 회원정보";
+                document.querySelector('.container h2').textContent = "회원정보";
                 document.querySelector('.container input').placeholder = "닉네임을 입력하세요.";
                 document.querySelector('.container input').value = "";
                 document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 2);");
