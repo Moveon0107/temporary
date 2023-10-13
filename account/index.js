@@ -1,7 +1,7 @@
 function Signup_Email(input, seq) {
+    input = input.trim() || "None";
     switch (seq) {
         case 0:
-            input = input.trim() || "None";
             if (input == "None") {
                 UI("ClanTalk - 회원가입", "이메일을 입력하세요.");
             } else {
@@ -20,11 +20,21 @@ function Signup_Email(input, seq) {
             }
             break;
         case 1:
-            UI("test", "비번")
+            if (input == "None") {
+                UI("ClanTalk - 회원가입", "비밀번호를 입력하세요.");
+                document.querySelector('.container input').value = "";
+            } else if(input.length >= 8) {
+                
+                UI("ClanTalk - 회원가입", input);
+
+            }else{
+                UI("ClanTalk - 회원가입", "비밀번호는 8글자 이상이어야 합니다.");
+                document.querySelector('.container input').value = "";
+            }
             break;
 
         default:
-            UI("경고", "데이터를 수정하지 마십시오.")
+            UI("경고", "데이터를 수정하지 마십시오!");
             break;
     }
 }
