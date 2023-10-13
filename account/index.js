@@ -23,11 +23,19 @@ function Signup_Email(input, seq) {
             if (input == "None") {
                 UI("ClanTalk - 회원가입", "비밀번호를 입력하세요.");
                 document.querySelector('.container input').value = "";
-            } else if(input.length >= 8) {
-                
+            } else if (input.length >= 8) {
+
                 UI("ClanTalk - 회원가입", input);
 
-            }else{
+                document.querySelector('.container').innerHTML = `
+                    <h2>이메일 인증</h2>
+                    인증 메일이 발송되었습니다.
+                    <p onclick="Signup_Email(document.querySelector('.container input').value, 0);" style="width: 80%; height: 30px; line-height: 30px; padding: 10px; text-align: center; background-color: dodgerblue; color: #ffffff; cursor: pointer; border-radius: 5px;">다음</p>
+                `;
+
+
+
+            } else {
                 UI("ClanTalk - 회원가입", "비밀번호는 8글자 이상이어야 합니다.");
                 document.querySelector('.container input').value = "";
             }
