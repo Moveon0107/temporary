@@ -24,22 +24,26 @@ function Signup_Email(input, seq) {
                 UI("ClanTalk - 회원가입", "비밀번호를 입력하세요.");
                 document.querySelector('.container input').value = "";
             } else if (input.length >= 8) {
-
-                UI("ClanTalk - 회원가입", input);
-
-                document.querySelector('.container').innerHTML = `
-                    <h2>이메일 인증</h2>
-                    인증 메일이 발송되었습니다.
-                    <p onclick="Signup_Email(document.querySelector('.container input').value, 0);" style="width: 80%; height: 30px; line-height: 30px; padding: 10px; text-align: center; background-color: dodgerblue; color: #ffffff; cursor: pointer; border-radius: 5px;">다음</p>
-                `;
-
-
-
+                document.querySelector('.container h2').textContent = "ClanTalk - 회원정보";
+                document.querySelector('.container input').placeholder = "닉네임을 입력하세요.";
+                document.querySelector('.container input').value = "";
+                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 2);");
             } else {
                 UI("ClanTalk - 회원가입", "비밀번호는 8글자 이상이어야 합니다.");
                 document.querySelector('.container input').value = "";
             }
             break;
+            
+        case 2:
+            if (input == "None") {
+                UI("ClanTalk - 회원정보", "닉네임을 입력하세요.");
+                document.querySelector('.container input').value = "";
+            } else {
+                input = input.replace(/[^\w\sㄱ-ㅎ가-힣]/gi, '');
+                UI("ClanTalk - 회원정보", input);
+            }
+
+        break;
 
         default:
             UI("경고", "데이터를 수정하지 마십시오!");
