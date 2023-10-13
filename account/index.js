@@ -9,7 +9,8 @@ function Signup_Email(input, seq) {
 
                 if (emailRegex.test(input)) {
                     console.log("올바른 이메일 주소입니다.");
-                    document.querySelector('.container input').placeholder = "비밀번호를 입력하세요."
+                    document.querySelector('.container input').placeholder = "비밀번호를 입력하세요.";
+                    document.querySelector('.container input').value = "";
                     document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 1);");
 
                 } else {
