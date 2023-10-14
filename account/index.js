@@ -46,6 +46,7 @@ function Signup_Email(input, seq) {
                     document.querySelector('.container input').max = "9999-12-31";
                     document.querySelector('.container input').removeAttribute("placeholder");
                     document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
+                    UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
                 } else {
                     UI("ClanTalk - 회원정보", "닉네임은 20글자 미만이어야 합니다.");
                     document.querySelector('.container input').value = "";
@@ -57,7 +58,6 @@ function Signup_Email(input, seq) {
             break;
 
         case 3:
-            UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
             if (input == "None") {
                 UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
             } else {
