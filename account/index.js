@@ -4,53 +4,58 @@ function Signup_Email(input, seq) {
         case 0:
             if (input == "None") {
                 UI("ClanTalk - 회원가입", "이메일을 입력하세요.");
+                document.querySelector('.container input').value = "";
+            } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(input)) {
+                email = input;
+                document.querySelector('.container input').placeholder = "비밀번호를 입력하세요.";
+                document.querySelector('.container input').value = "";
+                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 1);");
             } else {
-                const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-
-                if (emailRegex.test(input)) {
-                    email = input;
-                    document.querySelector('.container input').placeholder = "비밀번호를 입력하세요.";
-                    document.querySelector('.container input').value = "";
-                    document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 1);");
-
-                } else {
-                    UI("ClanTalk - 회원가입", "올바르지 않은 이메일 주소입니다.");
-                }
-                //Email_request(input);
+                UI("ClanTalk - 회원가입", "올바르지 않은 이메일 주소입니다.");
             }
             break;
+
         case 1:
             if (input == "None") {
                 UI("ClanTalk - 회원가입", "비밀번호를 입력하세요.");
                 document.querySelector('.container input').value = "";
-            } else if (input.length >= 8&&input.length <20) {
-                password = input;
-                document.querySelector('.container h2').textContent = "회원정보";
-                document.querySelector('.container input').placeholder = "닉네임을 입력하세요.";
-                document.querySelector('.container input').value = "";
-                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 2);");
+            } else if (/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(input)) {
+                if (input.length >= 8 && input.length < 20) {
+                    password = input;
+                    document.querySelector('.container h2').textContent = "회원정보";
+                    document.querySelector('.container input').placeholder = "닉네임을 입력하세요.";
+                    document.querySelector('.container input').value = "";
+                    document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 2);");
+                } else {
+                    UI("ClanTalk - 회원가입", "비밀번호는 8글자 이상 20글자 미만이어야 합니다.");
+                    document.querySelector('.container input').value = "";
+                }
             } else {
-                UI("ClanTalk - 회원가입", "비밀번호는 8글자 이상 20글자 미만이어야 합니다.");
+                UI("ClanTalk - 회원가입", "영어, 숫자, 특수 문자 중에서 하나 이상을 포함하는지 확인하세요.");
                 document.querySelector('.container input').value = "";
             }
             break;
-            
+
         case 2:
-            nickname = input.replace(/[^\wㄱ-ㅎ가-힣]/gi, '') || "None";
-            if (nickname == "None") {
+            if (input == "None") {
                 UI("ClanTalk - 회원정보", "닉네임을 입력하세요.");
                 document.querySelector('.container input').value = "";
-            } else if(input.length < 20) {
-                document.querySelector('.container input').type = "date";
-                document.querySelector('.container input').max = "9999-12-31";
-                document.querySelector('.container input').removeAttribute("placeholder");
-                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
-            }else{
-                UI("ClanTalk - 회원정보", "닉네임은 20글자 미만이어야 합니다.");
+            } else if (/^[\wㄱ-ㅎ가-힣]+$/.test(input)) {
+                if (input.length < 20) {
+                    document.querySelector('.container input').type = "date";
+                    document.querySelector('.container input').max = "9999-12-31";
+                    document.querySelector('.container input').removeAttribute("placeholder");
+                    document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
+                } else {
+                    UI("ClanTalk - 회원정보", "닉네임은 20글자 미만이어야 합니다.");
+                    document.querySelector('.container input').value = "";
+                }
+            } else {
+                UI("ClanTalk - 회원정보", "한국어, 영어, 숫자, 언더바(_)만 입력이 가능합니다.");
                 document.querySelector('.container input').value = "";
             }
+            break;
 
-        break;
         case 3:
             UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
             if (input == "None") {
@@ -58,7 +63,6 @@ function Signup_Email(input, seq) {
             } else {
                 UI("ClanTalk - 회원정보", input);
             }
-
 
         default:
             UI("경고", "데이터를 수정하지 마십시오!");
