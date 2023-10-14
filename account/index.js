@@ -43,7 +43,7 @@ function Signup_Email(input, seq) {
             } else if (/^[\wㄱ-ㅎ가-힣]+$/.test(input)) {
                 if (input.length < 20) {
                     document.querySelector('.container input').type = "date";
-                    document.querySelector('.container input').max = "9999-12-31";
+                    document.querySelector('.container input').max = new Date().getFullYear()-7+"-12-31";
                     document.querySelector('.container input').removeAttribute("placeholder");
                     document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
                     UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
