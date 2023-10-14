@@ -42,6 +42,7 @@ function Signup_Email(input, seq) {
                 document.querySelector('.container input').value = "";
             } else if (/^[\wㄱ-ㅎ가-힣]+$/.test(input)) {
                 if (input.length < 20) {
+                    nickname = input;
                     document.querySelector('.container input').type = "date";
                     document.querySelector('.container input').min = new Date().getFullYear()-90+"-01-01"
                     document.querySelector('.container input').max = new Date().getFullYear()+"-12-31";
@@ -62,7 +63,7 @@ function Signup_Email(input, seq) {
             if (input == "None") {
                 UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
             } else {
-                UI("ClanTalk - 회원정보", input);
+                UI("ClanTalk - 회원정보", email+"\n"+password+"\n"+nickname+"\n"+input);
             }
             break;
 
