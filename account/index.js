@@ -63,6 +63,7 @@ function Signup_Email(input, seq) {
             } else {
                 UI("ClanTalk - 회원정보", input);
             }
+            break;
 
         default:
             UI("경고", "데이터를 수정하지 마십시오!");
