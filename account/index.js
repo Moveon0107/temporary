@@ -63,11 +63,11 @@ function Signup_Email(input, seq) {
             if (input == "None") {
                 UI("ClanTalk - 회원가입", "생년월일을 입력하세요.");
             } else {
+                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 4);");
                 document.querySelector('.container').innerHTML += "<p style='margin: 0; font-size: 12px; font-weight: bold; color: tomato;' id='remaining-time'>남은 시간: 5분 0초</p>";
                 Email_request(nickname, email);
                 document.querySelector('.container input').placeholder = "인증 코드를 입력하세요.";
                 document.querySelector('.container input').value = "";
-                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 4);");
                 document.querySelector('.container input').removeAttribute("type");
                 document.querySelector('.container input').removeAttribute("max");
                 document.querySelector('.container input').removeAttribute("min");
@@ -124,14 +124,15 @@ function getRemainingTime(email) {
     .then(data => {
       const seconds = data.remainingTime;
       if(data.remainingTime <=0) {
+
         return;
       }
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = seconds % 60;
-      const timerText = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
-
+      timerText = `남은 시간: ${minutes}분 ${remainingSeconds}초`
+      document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${remainingSeconds}초`;
       console.log(timerText);
-      setInterval(getRemainingTime(email), 1000)
+      setInterval(() => getRemainingTime(email), 1000);
     })
     .catch(error => {
         console.error('오류:', error);
