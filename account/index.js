@@ -102,36 +102,40 @@ function Email_request(nickname, email) {
             .catch(error => {
                 clearInterval(timerInterval);
                 console.error('오류:', error);
-                return
             });
     }
-    
-    if(getCoolTime(email)=="False"){
-        return;
-    }
 
-    
-
-    // 서버로 POST 요청 보내기
-    fetch('https://clantalk-server.moveon.kro.kr/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "nickname": nickname,
-            "email": email
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log('이메일 발송 성공:', data.message);
-            UI("ClanTalk - 회원가입", "입력하신 이메일(" + email + ")로 인증코드가 발송되었습니다.");
+    getCoolTime(email)
+        .then(result => {
+            if (result !== "False") {
+                // 서버로 POST 요청 보내기
+                fetch('https://clantalk-server.moveon.kro.kr/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "nickname": nickname,
+                        "email": email
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('이메일 발송 성공:', data.message);
+                        UI("ClanTalk - 회원가입", "입력하신 이메일(" + email + ")로 인증코드가 발송되었습니다.");
+                    })
+                    .catch(error => {
+                        console.error('이메일 발송 실패:', error);
+                        UI("ClanTalk - 회원가입", "인증코드 발송에 실패하였습니다.");
+                    });
+            }
         })
         .catch(error => {
-            console.error('이메일 발송 실패:', error);
-            UI("ClanTalk - 회원가입", "인증코드 발송에 실패하였습니다.");
+            console.error('오류:', error);
         });
+
+
+
 }
 
 
