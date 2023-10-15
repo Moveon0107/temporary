@@ -38,7 +38,7 @@ function Signup_Email(input, seq) {
 
         case 2:
             if (input == "None") {
-                UI("ClanTalk - 회원정보", "닉네임을 입력하세요.");
+                UI("ClanTalk - 회원가입", "닉네임을 입력하세요.");
                 document.querySelector('.container input').value = "";
             } else if (/^[\wㄱ-ㅎ가-힣]+$/.test(input)) {
                 if (input.length < 20) {
@@ -48,31 +48,44 @@ function Signup_Email(input, seq) {
                     document.querySelector('.container input').max = new Date().getFullYear()+"-12-31";
                     document.querySelector('.container input').removeAttribute("placeholder");
                     document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
-                    UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
+                    UI("ClanTalk - 회원가입", "생년월일을 입력하세요.");
                 } else {
-                    UI("ClanTalk - 회원정보", "닉네임은 20글자 미만이어야 합니다.");
+                    UI("ClanTalk - 회원가입", "닉네임은 20글자 미만이어야 합니다.");
                     document.querySelector('.container input').value = "";
                 }
             } else {
-                UI("ClanTalk - 회원정보", "한국어, 영어, 숫자, 언더바(_)만 입력이 가능합니다.");
+                UI("ClanTalk - 회원가입", "한국어, 영어, 숫자, 언더바(_)만 입력이 가능합니다.");
                 document.querySelector('.container input').value = "";
             }
             break;
 
         case 3:
             if (input == "None") {
-                UI("ClanTalk - 회원정보", "생년월일을 입력하세요.");
+                UI("ClanTalk - 회원가입", "생년월일을 입력하세요.");
             } else {
-                UI("ClanTalk - 회원정보", email+"\n"+password+"\n"+nickname+"\n"+input);
+                document.querySelector('.container').innerHTML += "<p style='margin: 0; font-size: 12px; font-weight: bold; color: tomato;' id='remaining-time'>남은 시간: 5분 0초</p>";
+                Email_request(nickname, email);
+                document.querySelector('.container input').placeholder = "인증 코드를 입력하세요.";
+                document.querySelector('.container input').value = "";
+                document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 4);");
+                document.querySelector('.container input').removeAttribute("type");
+                document.querySelector('.container input').removeAttribute("max");
+                document.querySelector('.container input').removeAttribute("min");
             }
             break;
+
+        case 4:
+
+
+        break
 
         default:
             UI("경고", "데이터를 수정하지 마십시오!");
             break;
     }
 }
-function Email_request(email) {
+function Email_request(nickname, email) {
+    updateRemainingTime(5*6*1000, Date.now());
     event.preventDefault();
 
     // 서버로 POST 요청 보내기
@@ -82,43 +95,39 @@ function Email_request(email) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+            "nickname": nickname,
             "email": email
         })
     })
         .then(response => response.json())
         .then(data => {
             console.log('이메일 발송 성공:', data.message);
+            UI("ClanTalk - 회원가입", "입력하신 이메일("+email+")로 인증 코드가 발송되었습니다.");
         })
         .catch(error => {
             console.error('이메일 발송 실패:', error);
+            UI("ClanTalk - 회원가입", "인증 코드 발송에 실패하였습니다.");
         });
-    // 클라이언트 쿨타임 설정 (5분을 밀리초로 변환)
-    const coolTime = 5 * 60 * 1000;
+    
 
-    // 클라이언트에서 쿨타임 시작 시간 기록
-    const startTime = Date.now();
 
-    // 남은 시간을 업데이트하고 표시하는 함수
-    function updateRemainingTime() {
-        const currentTime = Date.now();
-        const elapsedTime = currentTime - startTime;
-        const remainingTime = coolTime - elapsedTime;
 
-        if (remainingTime <= 0) {
-            // 쿨타임이 종료된 경우
-            document.getElementById('remaining-time').textContent = '쿨타임 종료';
-        } else {
-            // 쿨타임이 진행 중인 경우
-            const minutes = Math.floor(remainingTime / 60000);
-            const seconds = ((remainingTime % 60000) / 1000).toFixed(0);
-            document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${seconds}초`;
-            setTimeout(updateRemainingTime, 1000); // 1초마다 업데이트
-        }
+}
+
+// 남은 시간을 업데이트하고 표시하는 함수
+function updateRemainingTime(coolTime, startTime) {
+    const currentTime = Date.now();
+    const elapsedTime = currentTime - startTime;
+    const remainingTime = coolTime - elapsedTime;
+
+    if (remainingTime <= 0) {
+        // 쿨타임이 종료된 경우
+        document.getElementById('remaining-time').textContent = '쿨타임 종료';
+    } else {
+        // 쿨타임이 진행 중인 경우
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = ((remainingTime % 60000) / 1000).toFixed(0);
+        document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${seconds}초`;
+        setTimeout(updateRemainingTime, 1000); // 1초마다 업데이트
     }
-
-    // 페이지 로드 시 남은 시간 업데이트 시작
-    window.onload = updateRemainingTime;
-
-
-
 }
