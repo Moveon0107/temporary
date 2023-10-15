@@ -94,12 +94,15 @@ function Email_request(nickname, email) {
         .then(response => response.json())
         .then(data => {
             const seconds = data.remainingTime;
+            console.log(seconds);
             if (seconds < 5 * 60)
-                return;
+            return;
+            console.log(seconds);
         })
         .catch(error => {
             clearInterval(timerInterval);
             console.error('오류:', error);
+            return
         });
 
     // 서버로 POST 요청 보내기
@@ -145,7 +148,6 @@ function getRemainingTime(email) {
             const remainingSeconds = seconds % 60;
             timerText = `남은 시간: ${minutes}분 ${remainingSeconds}초`
             document.getElementById('remaining-time').textContent = timerText;
-            console.log(timerText);
         })
         .catch(error => {
             clearInterval(timerInterval);
