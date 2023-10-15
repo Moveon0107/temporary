@@ -117,14 +117,8 @@ function Email_request(nickname, email) {
 
 // 서버에서 남은 시간을 가져오는 함수
 function getRemainingTime(email) {
-  fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime', {
-    method: 'GET',
-    body: JSON.stringify({
-        "email": email
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email='+email, {
+    method: 'GET'
   })
     .then(response => response.json())
     .then(data => {
