@@ -44,8 +44,8 @@ function Signup_Email(input, seq) {
                 if (input.length < 20) {
                     nickname = input;
                     document.querySelector('.container input').type = "date";
-                    document.querySelector('.container input').min = new Date().getFullYear()-90+"-01-01"
-                    document.querySelector('.container input').max = new Date().getFullYear()+"-12-31";
+                    document.querySelector('.container input').min = new Date().getFullYear() - 90 + "-01-01"
+                    document.querySelector('.container input').max = new Date().getFullYear() + "-12-31";
                     document.querySelector('.container input').removeAttribute("placeholder");
                     document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 3);");
                     UI("ClanTalk - 회원가입", "생년월일을 입력하세요.");
@@ -77,7 +77,7 @@ function Signup_Email(input, seq) {
         case 4:
 
 
-        break
+            break
 
         default:
             UI("경고", "데이터를 수정하지 마십시오!");
@@ -87,6 +87,20 @@ function Signup_Email(input, seq) {
 function Email_request(nickname, email) {
     event.preventDefault();
     timerInterval = setInterval(() => getRemainingTime(email), 1000);
+
+    fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(data => {
+            const seconds = data.remainingTime;
+            if (seconds < 5 * 60)
+                return;
+        })
+        .catch(error => {
+            clearInterval(timerInterval);
+            console.error('오류:', error);
+        });
 
     // 서버로 POST 요청 보내기
     fetch('https://clantalk-server.moveon.kro.kr/signup', {
@@ -102,43 +116,39 @@ function Email_request(nickname, email) {
         .then(response => response.json())
         .then(data => {
             console.log('이메일 발송 성공:', data.message);
-            UI("ClanTalk - 회원가입", "입력하신 이메일("+email+")로 인증 코드가 발송되었습니다.");
+            UI("ClanTalk - 회원가입", "입력하신 이메일(" + email + ")로 인증코드가 발송되었습니다.");
         })
         .catch(error => {
             console.error('이메일 발송 실패:', error);
-            UI("ClanTalk - 회원가입", "인증 코드 발송에 실패하였습니다.");
+            UI("ClanTalk - 회원가입", "인증코드 발송에 실패하였습니다.");
         });
-    
-
-
-
 }
 
 
 // 서버에서 남은 시간을 가져오는 함수
 function getRemainingTime(email) {
-  fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email='+email, {
-    method: 'GET'
-  })
-    .then(response => response.json())
-    .then(data => {
-      const seconds = data.remainingTime;
-      if(data.remainingTime <=0) {
-        clearInterval(timerInterval);
-        document.getElementById('remaining-time').textContent = "인증코드 전송";
-        document.getElementById('remaining-time').setAttribute('onclick', `
-        document.getElementById('remaining-time').removeAttribute("onclick");
-        Email_request(nickname, email);
-        `);
-      }
-      const minutes = Math.floor(seconds / 60);
-      const remainingSeconds = seconds % 60;
-      timerText = `남은 시간: ${minutes}분 ${remainingSeconds}초`
-      document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${remainingSeconds}초`;
-      console.log(timerText);
+    fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
+        method: 'GET'
     })
-    .catch(error => {
-        clearInterval(timerInterval);
-        console.error('오류:', error);
-    });
+        .then(response => response.json())
+        .then(data => {
+            const seconds = data.remainingTime;
+            if (data.remainingTime <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('remaining-time').textContent = "인증코드 전송";
+                document.getElementById('remaining-time').setAttribute('onclick', `
+                document.getElementById('remaining-time').removeAttribute("onclick");
+                Email_request(nickname, email);
+                `);
+            }
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            timerText = `남은 시간: ${minutes}분 ${remainingSeconds}초`
+            document.getElementById('remaining-time').textContent = timerText;
+            console.log(timerText);
+        })
+        .catch(error => {
+            clearInterval(timerInterval);
+            console.error('오류:', error);
+        });
 }
