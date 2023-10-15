@@ -85,8 +85,8 @@ function Signup_Email(input, seq) {
     }
 }
 function Email_request(nickname, email) {
-    updateRemainingTime(5*6*1000, Date.now());
     event.preventDefault();
+    timerInterval = setInterval(getRemainingTime(email), 1000);
 
     // 서버로 POST 요청 보내기
     fetch('https://clantalk-server.moveon.kro.kr/signup', {
@@ -114,20 +114,31 @@ function Email_request(nickname, email) {
 
 }
 
-// 남은 시간을 업데이트하고 표시하는 함수
-function updateRemainingTime(coolTime, startTime) {
-    const currentTime = Date.now();
-    const elapsedTime = currentTime - startTime;
-    const remainingTime = coolTime - elapsedTime;
 
-    if (remainingTime <= 0) {
-        // 쿨타임이 종료된 경우
-        document.getElementById('remaining-time').textContent = '쿨타임 종료';
-    } else {
-        // 쿨타임이 진행 중인 경우
-        const minutes = Math.floor(remainingTime / 60000);
-        const seconds = ((remainingTime % 60000) / 1000).toFixed(0);
-        document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${seconds}초`;
-        setTimeout(updateRemainingTime, 1000); // 1초마다 업데이트
-    }
+// 서버에서 남은 시간을 가져오는 함수
+function getRemainingTime(email) {
+  fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime', {
+    method: 'GET',
+    body: JSON.stringify({ email }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      const seconds = data.remainingTime;
+      if(data.remainingTime <=0) {
+        clearInterval(timerInterval);
+        return;
+      }
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      const timerText = `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+
+      console.log(timerText);
+    })
+    .catch(error => {
+        clearInterval(timerInterval);
+        console.error('오류:', error);
+    });
 }
