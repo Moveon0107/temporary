@@ -119,7 +119,9 @@ function Email_request(nickname, email) {
 function getRemainingTime(email) {
   fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime', {
     method: 'GET',
-    body: JSON.stringify({ email }),
+    body: JSON.stringify({
+        "email": email
+    }),
     headers: {
       'Content-Type': 'application/json',
     },
