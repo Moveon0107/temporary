@@ -86,7 +86,7 @@ function Signup_Email(input, seq) {
 }
 function Email_request(nickname, email) {
     event.preventDefault();
-    getRemainingTime(email);
+    timerInterval = setInterval(() => getRemainingTime(email), 1000);
 
     // 서버로 POST 요청 보내기
     fetch('https://clantalk-server.moveon.kro.kr/signup', {
@@ -124,6 +124,7 @@ function getRemainingTime(email) {
     .then(data => {
       const seconds = data.remainingTime;
       if(data.remainingTime <=0) {
+        clearInterval(timerInterval);
         document.getElementById('remaining-time').textContent = "인증코드 전송";
         document.getElementById('remaining-time').setAttribute('onclick', `
         document.getElementById('remaining-time').removeAttribute("onclick");
@@ -135,9 +136,9 @@ function getRemainingTime(email) {
       timerText = `남은 시간: ${minutes}분 ${remainingSeconds}초`
       document.getElementById('remaining-time').textContent = `남은 시간: ${minutes}분 ${remainingSeconds}초`;
       console.log(timerText);
-      setInterval(() => getRemainingTime(email), 1000);
     })
     .catch(error => {
+        clearInterval(timerInterval);
         console.error('오류:', error);
     });
 }
