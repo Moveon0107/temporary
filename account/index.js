@@ -87,23 +87,30 @@ function Signup_Email(input, seq) {
 function Email_request(nickname, email) {
     event.preventDefault();
     timerInterval = setInterval(() => getRemainingTime(nickname, email), 1000);
-
-    fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
-        method: 'GET'
-    })
-        .then(response => response.json())
-        .then(data => {
-            seconds = data.remainingTime;
+    const getCoolTime = (email) => {
+        fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
+            method: 'GET'
         })
-        .catch(error => {
-            clearInterval(timerInterval);
-            console.error('오류:', error);
-            return
-        });
-    if (seconds < 5 * 60) {
-        console.log(seconds);
+            .then(response => response.json())
+            .then(data => {
+                const seconds = data.remainingTime;
+                if (seconds < 5 * 60) {
+                    console.log(seconds);
+                    return "False";
+                }
+            })
+            .catch(error => {
+                clearInterval(timerInterval);
+                console.error('오류:', error);
+                return
+            });
+    }
+    
+    if(getCoolTime(email)=="False"){
         return;
     }
+
+    
 
     // 서버로 POST 요청 보내기
     fetch('https://clantalk-server.moveon.kro.kr/signup', {
@@ -136,7 +143,7 @@ function getRemainingTime(nickname, email) {
         .then(response => response.json())
         .then(data => {
             const seconds = data.remainingTime;
-            if (data.remainingTime < 5) {
+            if (data.remainingTime <= 0) {
                 clearInterval(timerInterval);
                 document.getElementById('remaining-time').textContent = "인증코드 전송";
                 document.getElementById('remaining-time').setAttribute('onclick', `
