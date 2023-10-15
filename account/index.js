@@ -93,7 +93,7 @@ function Email_request(nickname, email) {
     })
         .then(response => response.json())
         .then(data => {
-            const seconds = data.remainingTime;
+            seconds = data.remainingTime;
         })
         .catch(error => {
             clearInterval(timerInterval);
