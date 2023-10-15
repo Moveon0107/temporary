@@ -87,28 +87,13 @@ function Signup_Email(input, seq) {
 function Email_request(nickname, email) {
     event.preventDefault();
     timerInterval = setInterval(() => getRemainingTime(nickname, email), 1000);
-    const getCoolTime = (email) => {
-        fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
-            method: 'GET'
-        })
-            .then(response => response.json())
-            .then(data => {
-                const seconds = data.remainingTime;
-                if (seconds < 5 * 60) {
-                    console.log(seconds);
-                    return "False";
-                }
-            })
-            .catch(error => {
-                clearInterval(timerInterval);
-                console.error('오류:', error);
-            });
-    }
-
-    getCoolTime(email)
-        .then(result => {
-            if (result !== "False") {
-                // 서버로 POST 요청 보내기
+    fetch('https://clantalk-server.moveon.kro.kr/getRemainingTime?email=' + email, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(data => {
+            const seconds = data.remainingTime;
+            if (seconds == 5 * 60) {
                 fetch('https://clantalk-server.moveon.kro.kr/signup', {
                     method: 'POST',
                     headers: {
@@ -131,11 +116,9 @@ function Email_request(nickname, email) {
             }
         })
         .catch(error => {
+            clearInterval(timerInterval);
             console.error('오류:', error);
         });
-
-
-
 }
 
 
