@@ -134,7 +134,7 @@ function getRemainingTime(nickname, email) {
                 document.getElementById('remaining-time').textContent = "인증코드 전송";
                 document.getElementById('remaining-time').setAttribute('onclick', `
                 document.getElementById('remaining-time').removeAttribute("onclick");
-                Email_request(${nickname}, ${email});`);
+                Email_request('${nickname}', '${email}');`);
                 clearInterval(timerInterval);
             }
             const minutes = Math.floor(seconds / 60);
