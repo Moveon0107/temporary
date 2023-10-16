@@ -131,12 +131,11 @@ function getRemainingTime(nickname, email) {
         .then(data => {
             const seconds = data.remainingTime;
             if (data.remainingTime <= 1) {
-                clearInterval(timerInterval);
                 document.getElementById('remaining-time').textContent = "인증코드 전송";
                 document.getElementById('remaining-time').setAttribute('onclick', `
                 document.getElementById('remaining-time').removeAttribute("onclick");
-                Email_request(${nickname}, ${email});
-                `);
+                Email_request(${nickname}, ${email});`);
+                clearInterval(timerInterval);
             }
             const minutes = Math.floor(seconds / 60);
             const remainingSeconds = seconds % 60;
