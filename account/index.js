@@ -136,6 +136,7 @@ function getRemainingTime(nickname, email) {
                 document.getElementById('remaining-time').setAttribute('onclick', `
                 document.getElementById('remaining-time').removeAttribute("onclick");
                 Email_request('${nickname}', '${email}');`);
+                return;
             }
             const minutes = Math.floor(seconds / 60);
             const remainingSeconds = seconds % 60;
