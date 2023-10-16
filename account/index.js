@@ -130,7 +130,7 @@ function getRemainingTime(nickname, email) {
         .then(response => response.json())
         .then(data => {
             const seconds = data.remainingTime;
-            if (data.remainingTime < 5) {
+            if (data.remainingTime < 3) {
                 clearInterval(timerInterval);
                 document.getElementById('remaining-time').textContent = "인증코드 전송";
                 document.getElementById('remaining-time').setAttribute('onclick', `
