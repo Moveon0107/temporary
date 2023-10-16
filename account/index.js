@@ -76,6 +76,26 @@ function Signup_Email(input, seq) {
 
         case 4:
 
+            fetch('https://clantalk-server.moveon.kro.kr/verify?email=' + email+"&verifyCode="+input, {
+                method: 'GET'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.verify){
+                        console.log("일치");
+                    }else{
+                        console.log("불일치");
+                    }
+                })
+                .catch(error => {
+                    console.error('오류:', error);
+                });
+
+
+
+
+
+
 
             break
 
