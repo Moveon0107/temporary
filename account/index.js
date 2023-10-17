@@ -7,6 +7,7 @@ function Signup_Email(input, seq) {
                 document.querySelector('.container input').value = "";
             } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(input)) {
                 email = input;
+                document.querySelector('.container input').type = "password";
                 document.querySelector('.container input').placeholder = "비밀번호를 입력하세요.";
                 document.querySelector('.container input').value = "";
                 document.querySelector('.container p').setAttribute('onclick', "Signup_Email(document.querySelector('.container input').value, 1);");
