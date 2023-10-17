@@ -23,6 +23,7 @@ function Signup_Email(input, seq) {
             } else if (/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(input)) {
                 if (input.length >= 8 && input.length < 20) {
                     password = input;
+                    document.querySelector('.container input').type = "text";
                     document.querySelector('.container h2').textContent = "회원정보";
                     document.querySelector('.container input').placeholder = "닉네임을 입력하세요.";
                     document.querySelector('.container input').value = "";
